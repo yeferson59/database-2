@@ -84,7 +84,6 @@ CREATE OR REPLACE PROCEDURE llenar_tabla(
   _cantidad integer,
   _esquema text default 'public'
 )
-LANGUAGE plpgsql
 AS $$
 DECLARE
   i integer := 1;
@@ -113,7 +112,7 @@ BEGIN
     END LOOP;
   END IF;
 END;
-$$;
+$$ LANGUAGE plpgsql;
 
 
 
