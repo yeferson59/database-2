@@ -1,5 +1,22 @@
 # 📚 Projects Database 2
 
+![Seguridad a nivel de fila en PostgreSQL](row-level.security.png)
+> Ejemplo visual de implementación de seguridad a nivel de fila (Row-Level Security) en PostgreSQL, incluido en los scripts de este repositorio para reforzar el control de acceso a los datos.
+
+**Ejemplo básico de Row-Level Security (RLS):**
+```sql
+-- Habilitar RLS en una tabla
+ALTER TABLE empleados ENABLE ROW LEVEL SECURITY;
+
+-- Crear una política para que cada usuario solo vea sus propios registros
+CREATE POLICY solo_sus_datos
+  ON empleados
+  USING (usuario = current_user);
+
+-- Activar la política
+ALTER TABLE empleados FORCE ROW LEVEL SECURITY;
+```
+
 ¡Bienvenido/a! Este repositorio contiene una colección de scripts SQL orientados a la práctica y aprendizaje de conceptos avanzados de bases de datos relacionales, especialmente en PostgreSQL. Aquí encontrarás ejemplos de modelado, procedimientos almacenados, triggers, vistas, manejo de usuarios, permisos y más, aplicados a distintos contextos como gestión de contactos, hospitales y tareas.
 
 ---
