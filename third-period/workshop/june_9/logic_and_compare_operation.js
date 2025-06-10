@@ -99,6 +99,30 @@ db.help.insertMany([
     ],
   },
   {
+    name: "exists",
+    description: "Verifica si un campo existe o no en los documentos.",
+    mean: "El campo1 existe en el documento.",
+    sintax: "{ campo1: { $exists: true } }",
+    type: "comparacion",
+    sentences: [
+      "db.help.find({ type: 'comparacion', name: 'exists' })",
+      "db.help.findOne({ name: 'exists' })",
+      "db.help.find({ name: 'exists' })",
+    ],
+  },
+  {
+    name: "type",
+    description: "Verifica el tipo de dato de un campo.",
+    mean: "El campo1 es de tipo string.",
+    sintax: '{ campo1: { $type: "string" } }',
+    type: "comparacion",
+    sentences: [
+      "db.help.find({ type: 'comparacion', name: 'type' })",
+      "db.help.findOne({ name: 'type' })",
+      "db.help.find({ name: 'type' })",
+    ],
+  },
+  {
     name: "and",
     description: "Ambas condiciones deben cumplirse.",
     mean: "El campo1 es mayor que 5 y el campo2 menor que 20.",
@@ -294,6 +318,12 @@ db.help.find({ name: "in" }).pretty();
 
 // $nin
 db.help.find({ name: "nin" }).pretty();
+
+// $exists
+db.help.find({ name: "exists" }).pretty();
+
+// $type
+db.help.find({ name: "type" }).pretty();
 
 // $and
 db.help.find({ name: "and" }).pretty();
